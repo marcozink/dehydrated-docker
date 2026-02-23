@@ -1,5 +1,4 @@
-FROM docker.io/alpine:3.18
-LABEL maintainer="Marco Zink <marcozink@gmail.com>"
+FROM docker.io/alpine:3.23LABEL maintainer="Marco Zink <marcozink@gmail.com>"
 
 ENV UID=1337 \
     GID=1337

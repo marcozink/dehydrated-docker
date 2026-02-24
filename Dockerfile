@@ -28,7 +28,6 @@ RUN apk add --no-cache \
  && git clone https://github.com/dehydrated-io/dehydrated /opt/dehydrated \
  && python3 -m pip install --break-system-packages --upgrade pip \
  && pip3 install --break-system-packages wheel==0.46.3 \
- && pip3 uninstall -y wheel==0.45.1 \
  && pip3 install --break-system-packages requests[security] \
  && pip3 install --break-system-packages dns-lexicon \
  && pip3 install --break-system-packages jinja2-cli[yaml] \

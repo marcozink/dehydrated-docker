@@ -47,4 +47,4 @@ ADD root /
 
 VOLUME /data
 
-CMD ["/command/s6-svscan", "/etc/s6.d"]
+CMD ["/usr/bin/s6-svscan", "/etc/s6.d"]

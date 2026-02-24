@@ -1,4 +1,4 @@
-FROM docker.io/alpine:3.18
+FROM docker.io/alpine:3.23
 LABEL maintainer="Marco Zink <marcozink@gmail.com>"
 
 ENV UID=1337 \
@@ -25,10 +25,12 @@ RUN apk add --no-cache \
       py3-pip \
       python3 \
  && mkdir -p /opt \
- && git clone https://github.com/lukas2511/dehydrated.git /opt/dehydrated \
- && pip3 install requests[security] \
- && pip3 install dns-lexicon \
- && pip3 install j2cli[yaml] \
+ && git clone https://github.com/dehydrated-io/dehydrated /opt/dehydrated \
+ && python3 -m pip install --break-system-packages --upgrade pip \
+ && pip3 install --break-system-packages wheel==0.46.3 \
+ && pip3 install --break-system-packages requests[security] \
+ && pip3 install --break-system-packages dns-lexicon \
+ && pip3 install --break-system-packages jinja2-cli[yaml] \
  && apk del .build-deps
 
 ENV \
@@ -47,4 +49,4 @@ ADD root /
 
 VOLUME /data
 
-CMD ["/bin/s6-svscan", "/etc/s6.d"]
+CMD ["/usr/bin/s6-svscan", "/etc/s6.d"]

@@ -1,9 +1,9 @@
 #!/bin/bash
-s6-svc -O /etc/s6.d/dehydrated
+/usr/bin/s6-svc -O /etc/s6.d/dehydrated
 
 # If config generation is turned on, generate a config from the template and current env vars
 if [[ "$DEHYDRATED_GENERATE_CONFIG" == "yes" ]]; then
-	j2 /etc/dehydrated/config.j2 > /data/config
+	python3 -c "import os,sys; from jinja2 import Template; print(Template(open(sys.argv[1]).read()).render(**os.environ))" /etc/dehydrated/config.j2 > /data/config
 fi
 
 # Set ownership to dehydrated on the relevant folders

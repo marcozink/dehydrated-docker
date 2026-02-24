@@ -28,7 +28,7 @@ RUN apk add --no-cache \
  && git clone https://github.com/lukas2511/dehydrated.git /opt/dehydrated \
  && pip3 install --break-system-packages requests[security] \
  && pip3 install --break-system-packages dns-lexicon \
- && pip3 install --break-system-packages j2cli[yaml] \
+ && pip3 install --break-system-packages jinja2-cli[yaml] \
  && apk del .build-deps
 
 ENV \

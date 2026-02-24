@@ -27,6 +27,7 @@ RUN apk add --no-cache \
  && mkdir -p /opt \
  && git clone https://github.com/dehydrated-io/dehydrated /opt/dehydrated \
  && python3 -m pip install --break-system-packages --upgrade pip \
+ && pip3 install --break-system-packages --upgrade setuptools \
  && pip3 install --break-system-packages wheel==0.46.3 \
  && pip3 install --break-system-packages requests[security] \
  && pip3 install --break-system-packages dns-lexicon \
